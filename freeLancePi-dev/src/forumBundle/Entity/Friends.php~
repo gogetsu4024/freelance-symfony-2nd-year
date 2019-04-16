@@ -1,0 +1,54 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Friends
+ *
+ * @ORM\Table(name="friends")
+ * @ORM\Entity
+ */
+class Friends
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idUser", type="integer", nullable=false)
+     */
+    private $iduser;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idFriend", type="integer", nullable=false)
+     */
+    private $idfriend;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="coworker", type="boolean", nullable=false)
+     */
+    private $coworker;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="closefriend", type="integer", nullable=false)
+     */
+    private $closefriend;
+
+
+}
+

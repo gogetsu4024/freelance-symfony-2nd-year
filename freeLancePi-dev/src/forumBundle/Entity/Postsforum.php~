@@ -1,0 +1,67 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Postsforum
+ *
+ * @ORM\Table(name="postsforum", indexes={@ORM\Index(name="idUser", columns={"idUser"}), @ORM\Index(name="categoryId", columns={"categoryId"})})
+ * @ORM\Entity
+ */
+class Postsforum
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subject", type="string", length=50, nullable=false)
+     */
+    private $subject;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=50, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="postedDate", type="datetime", nullable=false)
+     */
+    private $posteddate;
+
+    /**
+     * @var \UserBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     * })
+     */
+    private $iduser;
+
+    /**
+     * @var Category
+     *
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoryId", referencedColumnName="id")
+     * })
+     */
+    private $categoryid;
+
+
+}
+

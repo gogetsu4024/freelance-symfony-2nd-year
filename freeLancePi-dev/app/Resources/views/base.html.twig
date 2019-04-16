@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from wp.hostlin.com/senior-safety/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Feb 2019 18:01:47 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="{{ asset('frontTemp/css/style.css')  }}">
+    <link rel="stylesheet" href="{{ asset('frontTemp/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontTemp/fonts/flaticon.css') }}" />
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontTemp/images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('frontTemp/images/favicon/favicon-32x32.png') }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ asset('frontTemp/images/favicon/favicon-16x16.png') }}" sizes="16x16">
+    {% block cssIncludes %}{% endblock %}
+</head>
+
+<body>
+<div class="boxed_wrapper">
+    <div class="header-top">
+        <div class="container clearfix">
+            <!--Top Left-->
+            <div class="top-left pull-left">
+                <ul class="links-nav clearfix">
+                    <li><a href="#"><span class="fa fa-phone"></span> Call:  123 4561 5523 </a></li>
+                    <li><a href="#"><span class="fa fa-envelope"></span>Email:  info@templatepath.com</a></li>
+                </ul>
+            </div>
+            <!--Top Right-->
+            <div class="top-right pull-right">
+                <div class="social-links clearfix">
+                    <a href="#"><span class="fa fa-facebook-f"></span></a>
+                    <a href="#"><span class="fa fa-twitter"></span></a>
+                    <a href="#"><span class="fa fa-linkedin"></span></a>
+                    <a href="#"><span class="fa fa-instagram"></span></a>
+                    <a href="#"><span class="fa fa-pinterest-p"></span></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- Header Top End -->
+
+
+
+    {% block main %}{% endblock %}
+
+    <footer>
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 column">
+                        <div class="widget">
+                            <div class="about_widget">
+                                <div class="logo">
+                                    <a href="index.html" title=""><img src="/images/resource/logo.png" alt=""></a>
+                                </div>
+                                <span>Collin Street West, Victor 8007, Australia.</span>
+                                <span>+1 246-345-0695</span>
+                                <span>info@jobhunt.com</span>
+                                <div class="social">
+                                    <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                                    <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                                    <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                                    <a href="#" title=""><i class="fa fa-pinterest"></i></a>
+                                    <a href="#" title=""><i class="fa fa-behance"></i></a>
+                                </div>
+                            </div><!-- About Widget -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4 column">
+                        <div class="widget">
+                            <h3 class="footer-title">Frequently Asked Questions</h3>
+                            <div class="link_widgets">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <a href="#" title="">Privacy &amp; Seurty </a>
+                                        <a href="#" title="">Terms of Serice</a>
+                                        <a href="#" title="">Communications </a>
+                                        <a href="#" title="">Referral Terms </a>
+                                        <a href="#" title="">Lending Licnses </a>
+                                        <a href="#" title="">Disclaimers </a>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <a href="#" title="">Support </a>
+                                        <a href="#" title="">How It Works </a>
+                                        <a href="#" title="">For Employers </a>
+                                        <a href="#" title="">Underwriting </a>
+                                        <a href="#" title="">Contact Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 column">
+                        <div class="widget">
+                            <h3 class="footer-title">Find Jobs</h3>
+                            <div class="link_widgets">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <a href="#" title="">US Jobs</a>
+                                        <a href="#" title="">Canada Jobs</a>
+                                        <a href="#" title="">UK Jobs</a>
+                                        <a href="#" title="">Emplois en Fnce</a>
+                                        <a href="#" title="">Jobs in Deuts</a>
+                                        <a href="#" title="">Vacatures China</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 column">
+                        <div class="widget">
+                            <div class="download_widget">
+                                <a href="#" title=""><img src="/images/resource/dw1.png" alt=""></a>
+                                <a href="#" title=""><img src="/images/resource/dw2.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-line">
+            <span>© 2018 Jobhunt All rights reserved. Design by Creative Layers</span>
+            <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
+        </div>
+    </footer>
+
+
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top tran3s color2_bg">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <!-- pre loader  -->
+    <div class="preloader"></div>
+
+    <!-- jQuery js -->
+    <script src="{{asset('frontTemp/js/jquery.js')}}"></script>
+    <!-- bootstrap js -->
+    <script src="{{asset('frontTemp/js/bootstrap.min.js')}}"></script>
+    <!-- jQuery ui js -->
+    <script src="{{asset('frontTemp/js/jquery-ui.js')}}"></script>
+    <!-- owl carousel js -->
+    <script src="{{asset('frontTemp/js/owl.carousel.min.js')}}"></script>
+    <!-- jQuery validation -->
+    <script src="{{asset('frontTemp/js/jquery.validate.min.js')}}"></script>
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRvBPo3-t31YFk588DpMYS6EqKf-oGBSI"></script>
+    <script src="{{asset('frontTemp/js/gmap.js')}}"></script>
+    <!-- mixit up -->
+    <script src="{{asset('frontTemp/js/wow.js')}}"></script>
+    <script src="{{asset('frontTemp/js/jquery.mixitup.min.js')}}"></script>
+    <script src="{{asset('frontTemp/js/jquery.fitvids.js')}}"></script>
+    <script src="{{asset('frontTemp/js/bootstrap-select.min.js')}}"></script>
+
+    <!-- revolution slider js -->
+    <script src="{{asset('frontTemp/assets/revolution/js/jquery.themepunch.tools.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.carousel.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.kenburn.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.migration.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
+    <script src="{{asset('frontTemp/assets/revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
+
+    <!-- fancy box -->
+    <script src="{{asset('frontTemp/js/jquery.fancybox.pack.js')}}"></script>
+    <script src="{{asset('frontTemp/js/jquery.polyglot.language.switcher.js')}}"></script>
+    <script src="{{asset('frontTemp/js/nouislider.js')}}"></script>
+    <script src="{{asset('frontTemp/js/jquery.bootstrap-touchspin.js')}}"></script>
+    <script src="{{asset('frontTemp/js/SmoothScroll.js')}}"></script>
+    <script src="{{asset('frontTemp/js/jquery.appear.js')}}"></script>
+    <script src="{{asset('frontTemp/js/jquery.countTo.js')}}"></script>
+    <script src="{{asset('frontTemp/js/jquery.flexslider.js')}}"></script>
+    <script src="{{asset('frontTemp/js/imagezoom.js')}}"></script>
+    <script src="{{asset('frontTemp/js/isotope.js')}}"></script>
+    <script src="{{asset('frontTemp/js/validation.js')}}"></script>
+    <script id="map-script" src="{{asset('frontTemp/js/default-map.js')}}"></script>
+
+    <script src="{{asset('frontTemp/js/jquery.ptTimeSelect.js')}}"></script>
+    <script src="{{asset('frontTemp/js/custom.js')}}"></script>
+    {% block jsIncludes %}{% endblock %}
+
+</div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,47 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Questions
+ *
+ * @ORM\Table(name="questions", indexes={@ORM\Index(name="fk_test", columns={"testID"})})
+ * @ORM\Entity
+ */
+class Questions
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="testID", type="integer", nullable=false)
+     */
+    private $testid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="question", type="string", length=50, nullable=false)
+     */
+    private $question;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bonneRep", type="string", length=50, nullable=false)
+     */
+    private $bonnerep;
+
+
+}
+

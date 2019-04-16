@@ -1,0 +1,48 @@
+Colabs:
+    type: entity
+    table: colabs
+    indexes:
+        freelancerId:
+            columns:
+                - freelancerId
+        projectId:
+            columns:
+                - projectId
+        taskId:
+            columns:
+                - taskId
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        freelancerid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: freelancerId
+        projectid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: projectId
+        taskid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: taskId
+        state:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

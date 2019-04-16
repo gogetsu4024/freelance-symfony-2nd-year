@@ -1,0 +1,6 @@
+reclamation_homepage:
+    path:     /addReclamation
+    defaults: { _controller: reclamationBundle:Default:index }
+reclamation_add:
+    path:     /addReclamation/send
+    defaults: { _controller: reclamationBundle:Default:send }

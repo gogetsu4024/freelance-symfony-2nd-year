@@ -1,0 +1,64 @@
+Postsforum:
+    type: entity
+    table: postsforum
+    indexes:
+        idUser:
+            columns:
+                - idUser
+        categoryId:
+            columns:
+                - categoryId
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        subject:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        posteddate:
+            type: datetime
+            nullable: false
+            column: postedDate
+        views:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+    manyToOne:
+        categoryid:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                categoryId:
+                    referencedColumnName: id
+            orphanRemoval: false
+        iduser:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idUser:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,28 @@
+security:
+    encoders:
+        UserBundle\Entity\User: bcrypt
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+            logout:       true
+            anonymous:    true
+
+
+    access_control:
+    - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/admin/, role: ROLE_ADMIN }

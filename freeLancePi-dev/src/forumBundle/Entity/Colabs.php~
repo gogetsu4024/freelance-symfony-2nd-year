@@ -1,0 +1,54 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Colabs
+ *
+ * @ORM\Table(name="colabs", indexes={@ORM\Index(name="freelancerId", columns={"freelancerId"}), @ORM\Index(name="projectId", columns={"projectId"}), @ORM\Index(name="taskId", columns={"taskId"})})
+ * @ORM\Entity
+ */
+class Colabs
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="freelancerId", type="integer", nullable=false)
+     */
+    private $freelancerid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="projectId", type="integer", nullable=false)
+     */
+    private $projectid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="taskId", type="integer", nullable=true)
+     */
+    private $taskid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=50, nullable=false)
+     */
+    private $state;
+
+
+}
+

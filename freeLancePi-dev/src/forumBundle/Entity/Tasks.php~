@@ -1,0 +1,50 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tasks
+ *
+ * @ORM\Table(name="tasks", indexes={@ORM\Index(name="projectId", columns={"projectId"})})
+ * @ORM\Entity
+ */
+class Tasks
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=50, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=50, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var \Projects
+     *
+     * @ORM\ManyToOne(targetEntity="Projects")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="projectId", referencedColumnName="id")
+     * })
+     */
+    private $projectid;
+
+
+}
+

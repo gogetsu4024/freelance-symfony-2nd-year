@@ -1,0 +1,82 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Projects
+ *
+ * @ORM\Table(name="projects", indexes={@ORM\Index(name="ownerId", columns={"ownerId"})})
+ * @ORM\Entity
+ */
+class Projects
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=50, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="creationDate", type="datetime", nullable=false)
+     */
+    private $creationdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="location", type="string", length=50, nullable=false)
+     */
+    private $location;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=50, nullable=false)
+     */
+    private $category;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="terminationDate", type="datetime", nullable=false)
+     */
+    private $terminationdate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ownerId", type="integer", nullable=false)
+     */
+    private $ownerid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=50, nullable=false)
+     */
+    private $status;
+
+
+}
+

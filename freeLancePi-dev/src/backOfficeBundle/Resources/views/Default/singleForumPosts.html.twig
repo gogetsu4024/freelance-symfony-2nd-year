@@ -1,0 +1,100 @@
+{% extends 'backtemplate/index.html.twig' %}
+
+{% block cssIncludes %}
+    <link rel="stylesheet" href="/backTemp/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+{% endblock  %}
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- /.box -->
+
+                <div class="box box-widget">
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <img class="img-circle" src="/forum/images/avatar/{{ p.iduser.picturePath }}" alt="User Image">
+                            <span class="username"><a href="#">{{ p.iduser.username }}</a></span>
+                            <span class="description">Shared publicly - 7:30 PM Today</span>
+                        </div>
+                        <!-- /.user-block -->
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
+                                <i class="fa fa-circle-o"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <img class="img-responsive pad" src="/backTemp/dist/img/photo2.png" alt="Photo">
+                        <div class="pull-right postreply">
+                            <div class="pull-left">
+                                <a href="{{ path('forum_delete_back',{'id': p.id }) }}" class="btn btn-danger">Delete Post</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <br>
+                        <p>{{ p.description }}</p>
+                        <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
+                        <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                        <span class="pull-right text-muted">{{ p.comments|length }} comments</span>
+
+                    </div>
+
+                    <!-- /.box-body -->
+                    <div class="box-footer box-comments">
+                        {% for c in p.comments %}
+                        <div class="box-comment">
+                            <!-- User image -->
+                            <img class="img-circle img-sm" src="/forum/images/avatar/{{ c.iduser.picturePath}}" alt="User Image">
+
+                            <div class="comment-text">
+                      <span class="username">
+                        {{ c.iduser.username }}
+                        <span class="text-muted pull-right">{{ c.postedOn|date('Y-m-d') }}</span>
+                      </span><!-- /.username -->
+                                {{ c.commentaire }}
+                            </div>
+                            <!-- /.comment-text -->
+                            <div class="pull-right postreply">
+                                <div class="pull-left">
+                                    <a href="{{ path('forum_view_single_Comment_delete_back',{'id': c.id }) }}" class="btn btn-primary">Delete Comment</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        <!-- /.box-comment -->
+
+                        <!-- /.box-comment -->
+                    </div>
+                    <!-- /.box-footer -->
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+{% endblock %}
+{% block jsIncludes %}
+    <script src="/backTemp/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/backTemp/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            })
+        })
+    </script>
+{% endblock %}

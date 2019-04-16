@@ -1,0 +1,21 @@
+test_homepage:
+    path:     /
+    defaults: { _controller: testBundle:Default:index }
+test_list:
+    path:     /list
+    defaults: { _controller: testBundle:Default:list }
+test_profile:
+    path:     /profile
+    defaults: { _controller: testBundle:Default:profile }
+test_login:
+    path:     /login
+    defaults: { _controller: testBundle:Default:login }
+test_signup:
+    path:     /signup
+    defaults: { _controller: testBundle:Default:signup }
+test_single:
+    path:     /single/{id}
+    defaults: { _controller: testBundle:Default:single }
+test_listGrid:
+    path:     /listGrid
+    defaults: { _controller: testBundle:Default:listGrid }

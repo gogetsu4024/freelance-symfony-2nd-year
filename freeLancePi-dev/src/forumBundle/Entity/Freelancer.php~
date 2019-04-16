@@ -1,0 +1,75 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Freelancer
+ *
+ * @ORM\Table(name="freelancer", indexes={@ORM\Index(name="userId", columns={"userId"})})
+ * @ORM\Entity
+ */
+class Freelancer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="userId", type="integer", nullable=false)
+     */
+    private $userid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="languages", type="string", length=50, nullable=false)
+     */
+    private $languages;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="minHourlyFee", type="integer", nullable=false)
+     */
+    private $minhourlyfee;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="gender", type="integer", nullable=false)
+     */
+    private $gender;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cvLink", type="string", length=50, nullable=false)
+     */
+    private $cvlink;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="maxHourlyFee", type="integer", nullable=false)
+     */
+    private $maxhourlyfee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ranking", type="string", length=50, nullable=false)
+     */
+    private $ranking;
+
+
+}
+

@@ -1,0 +1,52 @@
+Postscomments:
+    type: entity
+    table: postscomments
+    indexes:
+        idPost:
+            columns:
+                - idPost
+        idUser:
+            columns:
+                - idUser
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        commentaire:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        postedon:
+            type: datetime
+            nullable: false
+            column: postedOn
+    manyToOne:
+        idpost:
+            targetEntity: Postsforum
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idPost:
+                    referencedColumnName: id
+            orphanRemoval: false
+        iduser:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idUser:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

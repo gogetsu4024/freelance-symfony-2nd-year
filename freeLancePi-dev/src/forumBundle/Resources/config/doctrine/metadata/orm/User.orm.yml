@@ -1,0 +1,134 @@
+User:
+    type: entity
+    table: user
+    uniqueConstraints:
+        UNIQ_8D93D64992FC23A8:
+            columns:
+                - username_canonical
+        UNIQ_8D93D649A0D96FBF:
+            columns:
+                - email_canonical
+        UNIQ_8D93D649C05FB297:
+            columns:
+                - confirmation_token
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        usernameCanonical:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: username_canonical
+        email:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        emailCanonical:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: email_canonical
+        enabled:
+            type: boolean
+            nullable: false
+        salt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        confirmationToken:
+            type: string
+            nullable: true
+            length: 180
+            options:
+                fixed: false
+            column: confirmation_token
+        passwordRequestedAt:
+            type: datetime
+            nullable: true
+            column: password_requested_at
+        roles:
+            type: array
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        firstname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: firstName
+        lastname:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: lastName
+        rating:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        phone:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        region:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        picturepath:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: picturePath
+        state:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

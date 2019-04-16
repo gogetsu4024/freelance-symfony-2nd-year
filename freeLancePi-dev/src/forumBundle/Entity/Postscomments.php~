@@ -1,0 +1,60 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Postscomments
+ *
+ * @ORM\Table(name="postscomments", indexes={@ORM\Index(name="idPost", columns={"idPost"}), @ORM\Index(name="idUser", columns={"idUser"})})
+ * @ORM\Entity
+ */
+class Postscomments
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="text", length=65535, nullable=false)
+     */
+    private $commentaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postedOn", type="string", length=50, nullable=false)
+     */
+    private $postedon;
+
+    /**
+     * @var \Postsforum
+     *
+     * @ORM\ManyToOne(targetEntity="Postsforum")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idPost", referencedColumnName="id")
+     * })
+     */
+    private $idpost;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     * })
+     */
+    private $iduser;
+
+
+}
+

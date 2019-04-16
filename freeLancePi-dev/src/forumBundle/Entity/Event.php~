@@ -1,0 +1,75 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Event
+ *
+ * @ORM\Table(name="event")
+ * @ORM\Entity
+ */
+class Event
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=50, nullable=false)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="date", nullable=false)
+     */
+    private $datecreation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=50, nullable=false)
+     */
+    private $adresse;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nmbreMax", type="integer", nullable=false)
+     */
+    private $nmbremax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=50, nullable=false)
+     */
+    private $category;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=50, nullable=false)
+     */
+    private $image;
+
+
+}
+

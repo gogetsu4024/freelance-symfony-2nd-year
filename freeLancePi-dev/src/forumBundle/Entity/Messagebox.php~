@@ -1,0 +1,54 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Messagebox
+ *
+ * @ORM\Table(name="messagebox", indexes={@ORM\Index(name="receiverID", columns={"receiverID"}), @ORM\Index(name="senderID", columns={"senderID"})})
+ * @ORM\Entity
+ */
+class Messagebox
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="receiverID", type="integer", nullable=false)
+     */
+    private $receiverid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="senderID", type="integer", nullable=false)
+     */
+    private $senderid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message", type="text", length=65535, nullable=false)
+     */
+    private $message;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="reply", type="integer", nullable=false)
+     */
+    private $reply;
+
+
+}
+

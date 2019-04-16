@@ -1,0 +1,103 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Users
+ *
+ * @ORM\Table(name="users")
+ * @ORM\Entity
+ */
+class Users
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstName", type="string", length=50, nullable=false)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastName", type="string", length=50, nullable=false)
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=50, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=50, nullable=false)
+     */
+    private $role;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rating", type="integer", nullable=false)
+     */
+    private $rating;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="phone", type="integer", nullable=false)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="region", type="string", length=50, nullable=false)
+     */
+    private $region;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=50, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picturePath", type="string", length=50, nullable=false)
+     */
+    private $picturepath;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="state", type="integer", nullable=false)
+     */
+    private $state;
+
+
+}
+

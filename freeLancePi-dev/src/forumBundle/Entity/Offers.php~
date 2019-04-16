@@ -1,0 +1,75 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Offers
+ *
+ * @ORM\Table(name="offers", indexes={@ORM\Index(name="offers_ibfk_1", columns={"freelancerId"}), @ORM\Index(name="projectId", columns={"projectId"}), @ORM\Index(name="taskId", columns={"taskId"})})
+ * @ORM\Entity
+ */
+class Offers
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="taskId", type="integer", nullable=true)
+     */
+    private $taskid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="projectId", type="integer", nullable=false)
+     */
+    private $projectid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="freelancerId", type="integer", nullable=false)
+     */
+    private $freelancerid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="bid", type="integer", nullable=false)
+     */
+    private $bid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duration", type="integer", nullable=false)
+     */
+    private $duration;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="offerDate", type="datetime", nullable=false)
+     */
+    private $offerdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="motivationalLetter", type="text", length=65535, nullable=false)
+     */
+    private $motivationalletter;
+
+
+}
+

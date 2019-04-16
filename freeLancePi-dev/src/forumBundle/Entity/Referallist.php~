@@ -1,0 +1,47 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Referallist
+ *
+ * @ORM\Table(name="referallist")
+ * @ORM\Entity
+ */
+class Referallist
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idUser", type="integer", nullable=false)
+     */
+    private $iduser;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idReferedFriend", type="integer", nullable=false)
+     */
+    private $idreferedfriend;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idEntreprise", type="integer", nullable=false)
+     */
+    private $identreprise;
+
+
+}
+

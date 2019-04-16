@@ -1,0 +1,103 @@
+{% extends 'backtemplate/back2.html.twig' %}
+
+{% block cssIncludes %}
+    <link rel="stylesheet" href="/backTemp/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+{% endblock  %}
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- /.box -->
+
+                <div class="box box-widget">
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <img class="img-circle" src="/forum/images/avatar/{{ p.user.picturePath }}" alt="User Image">
+                            <span class="username"><a href="#">{{ p.user.username }}</a></span>
+                            <span class="description">Shared publicly - 7:30 PM Today</span>
+                        </div>
+                        <!-- /.user-block -->
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
+                                <i class="fa fa-circle-o"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="tab-pane active" id="settings">
+                            <div class="box-body">
+                  <pre style="font-weight: 600;">
+                      <h1 style="text-align: center;color: #1a1a1a">Subject: {{ p.subject }}</h1>
+                      <hr>
+                      <p style="color: #0b1b46">{{p.description  }}</p>
+                  </pre>
+                            </div>
+
+                            <form  action="{{ path('back_office_SendMail') }}" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-sm-2 control-label">Email address</label>
+                                    <input hidden name="id" value="{{ p.id }}">
+                                    <div class="col-sm-10">
+                                        <input name="email" value="{{ p.user.email }}" type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-sm-2 control-label">body</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="body" rows="10" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="pull-right postreply">
+                            <div class="pull-left">
+                                <a href="{{ path('forum_delete_back',{'id': p.id }) }}" class="btn btn-success">send mail</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <br>
+                        <p>{{ p.description }}</p>
+                        <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
+                        <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                        <span class="pull-right text-muted">{{ p.description }} comments</span>
+
+                    </div>
+
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+{% endblock %}
+{% block jsIncludes %}
+    <script src="/backTemp/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/backTemp/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            })
+        })
+    </script>
+{% endblock %}

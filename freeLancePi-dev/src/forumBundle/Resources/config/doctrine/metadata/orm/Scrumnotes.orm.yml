@@ -1,0 +1,67 @@
+Scrumnotes:
+    type: entity
+    table: scrumnotes
+    indexes:
+        IDX_B86CCFF8D380C3FD:
+            columns:
+                - scrumboardId
+        IDX_B86CCFF8FE6E88D7:
+            columns:
+                - idUser
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        posteddate:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: postedDate
+        title:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    manyToOne:
+        scrumboardid:
+            targetEntity: Scrumboard
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                scrumboardId:
+                    referencedColumnName: id
+            orphanRemoval: false
+        iduser:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idUser:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,32 @@
+Scrumboard:
+    type: entity
+    table: scrumboard
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        projectid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: projectId
+        title:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 30
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

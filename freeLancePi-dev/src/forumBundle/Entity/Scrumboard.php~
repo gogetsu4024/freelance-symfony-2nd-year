@@ -1,0 +1,47 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Scrumboard
+ *
+ * @ORM\Table(name="scrumboard")
+ * @ORM\Entity
+ */
+class Scrumboard
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="projectId", type="integer", nullable=false)
+     */
+    private $projectid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=50, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=30, nullable=false)
+     */
+    private $description;
+
+
+}
+

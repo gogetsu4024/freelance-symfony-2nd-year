@@ -1,0 +1,28 @@
+reclamation:
+    resource: "@reclamationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sandbox:
+    resource: "@sandboxBundle/Resources/config/routing.yml"
+    prefix:   /
+
+back_office:
+    resource: "@backOfficeBundle/Resources/config/routing.yml"
+    prefix:   /administration/
+
+test:
+    resource: "@testBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+forum:
+    resource: "@forumBundle/Resources/config/routing.yml"
+    prefix:   /forum/
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

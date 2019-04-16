@@ -1,0 +1,29 @@
+back_office_homepage:
+    path:     /
+    defaults: { _controller: backOfficeBundle:Default:index }
+back_office_listForumPosts:
+    path:     /listForumPosts
+    defaults: { _controller: backOfficeBundle:Default:listForumPosts }
+back_office_listForumPosts_user:
+    path:     /listForumPostsUser/{id}
+    defaults: { _controller: backOfficeBundle:Default:singleUserForumPosts }
+back_office_singleForumPosts:
+    path:     /listForumPosts/{id}
+    defaults: { _controller: backOfficeBundle:Default:singleForumPosts }
+forum_delete_back:
+    path:     /delete/{id}
+    defaults: { _controller: backOfficeBundle:Default:delete }
+
+forum_view_single_Comment_delete_back:
+    path:     /deleteComment/{id}
+    defaults: { _controller: backOfficeBundle:Default:viewsingleCommentDelete}
+
+back_office_listReclamations:
+    path:     /listReclamations
+    defaults: { _controller: backOfficeBundle:Reclamations:listReclamations }
+back_office_singleReclamation:
+    path:     /singleReclamation/{id}
+    defaults: { _controller: backOfficeBundle:Reclamations:singleReclamation }
+back_office_SendMail:
+    path:     /sendMail
+    defaults: { _controller: backOfficeBundle:Reclamations:singleReclamationSendMail }

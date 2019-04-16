@@ -1,0 +1,267 @@
+{% extends 'forum/forum.html.twig' %}
+
+{% block content %}
+
+
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 breadcrumbf">
+                    <a href="{{ path('forum_homepage') }}">forum</a> <span class="diviver">&gt;</span> <a href="#">General Discussion</a> <span class="diviver">&gt;</span> <a href="#">Topic Details</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+
+                    <!-- POST -->
+                    <div class="post">
+                        <div class="wrap-ut pull-left">
+                            <div class="userinfo pull-left">
+                                <div class="avatar">
+                                    <img src="/forum/images/avatar/{{ post.iduser.picturePath }}" alt="" />
+                                    <div class="status green">&nbsp;</div>
+                                </div>
+                                <a href="{{ path('forum_view_single_user',{'id': post.iduser.id }) }}">{{ post.iduser.username }}'s posts</a>
+                            </div>
+                            <div class="posttext pull-left">
+                                <h2><a href="">{{ post.subject }}</a></h2>
+                                <p>{{ post.description }}</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="postinfo pull-left">
+                            <div class="comments">
+                                <div class="commentbg">
+                                    {{ post.comments|length }}
+                                    <div class="mark"></div>
+                                </div>
+
+                            </div>
+                            <div class="views"><i class="fa fa-eye"></i> {{ post.views }}</div>
+                            <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="postinfobot">
+
+                            <div class="likeblock pull-left">
+                                <a href="#" class="up"><i class="fa fa-thumbs-o-up"></i>55</a>
+                                <a href="#" class="down"><i class="fa fa-thumbs-o-down"></i>12</a>
+                            </div>
+
+                            <div class="prev pull-left">
+                                <a href="#"><i class="fa fa-reply"></i></a>
+                            </div>
+
+                            <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{ post.getPostedDate()|date('Y-m-d') }}</div>
+
+                            <div class="next pull-right">
+                                <a href="#"><i class="fa fa-share"></i></a>
+
+                                <a href="#"><i class="fa fa-flag"></i></a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div><!-- POST -->
+                    {% if (app.user) %}
+                    {% if(post.iduser.id== app.user.id) %}
+                        <div class="stnt row pull-right " >
+                            <div class="col-md-5">
+                                    <button class="btn btn-success donate-box-btn2">Edit Topic</button>
+                            </div>
+                            <div class="col-md-3">
+                                <form  action="{{ path('forum_delete',{'id': post.id }) }}" class="form-group" method="post">
+                                    <button class="btn btn-danger">Delete post</button>
+                                </form>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                    </br>
+                    </br>
+                    </br>
+
+
+                    {% for c in post.comments %}
+                        <div class="post">
+                            <div class="topwrap">
+                                <div class="userinfo pull-left">
+                                    <div class="avatar">
+                                        <img src="/forum/images/avatar/{{ c.iduser.picturePath}}" alt="">
+                                        <div class="status red">&nbsp;</div>
+                                        {{ c.iduser.username }}
+                                    </div>
+                                </div>
+                                <div class="posttext pull-left">
+                                    <p>{{ c.commentaire }}</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="postinfobot">
+
+
+
+                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{ c.postedOn|date('Y-m-d') }}</div>
+
+                                <div class="next pull-right">
+                                    <a href="#"><i class="fa fa-share"></i></a>
+
+                                    <a href="#"><i class="fa fa-flag"></i></a>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div><!-- POST -->
+                        {% if (app.user) %}
+                        {% if post.idUser.id == app.user.id %}
+                            <div class="pull-right postreply">
+                                <div class="pull-left">
+                                    <a href="{{ path('forum_view_single_Comment_delete',{'id': c.id }) }}" class="btn btn-primary">Delete Comment</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if (app.user) %}
+                    <div class="post">
+                        <form action="{{ path('forum_add_comment',{'id': post.id }) }}" class="form newtopic" method="post">
+                            <div class="topwrap">
+                                <div class="userinfo pull-left">
+                                    <div class="avatar">
+                                        <img src="/forum/images/avatar/{{ app.user.picturePath }}" alt="">
+                                        <div class="status red">&nbsp;</div>
+                                        {{ app.user.username }}
+                                    </div>
+
+                                </div>
+                                <div class="posttext pull-left">
+                                    <div class="textwraper">
+                                        <div class="postreply">Post a Reply</div>
+                                        <textarea name="Description" id="Description" placeholder="Type your message here"></textarea>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="postinfobot">
+
+                                <div class="notechbox pull-left">
+                                    <input type="checkbox" name="note" id="note" class="form-control">
+                                </div>
+
+                                <div class="pull-left">
+                                    <label for="note"> Email me when some one post a reply</label>
+                                </div>
+
+                                <div class="pull-right postreply">
+                                    <div class="pull-left smile"><a href="#"><i class="fa fa-smile-o"></i></a></div>
+                                    <div class="pull-left"><button type="submit" class="btn btn-primary">Post Reply</button></div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div><!-- POST -->
+                    {% endif %}
+
+
+                    <!-- POST -->
+                    <!-- POST -->
+
+
+
+                    <!-- POST -->
+
+
+                </div>
+                <div class="col-lg-4 col-md-4">
+
+                    <!-- -->
+                    <div class="sidebarblock">
+                        <h3>Categories</h3>
+                        <div class="divline"></div>
+                        <div class="blocktxt">
+                            <ul class="cats">
+                                {% for c in categories %}
+                                    <li><a href="#">{{ c.name }} <span class="badge pull-right">20</span></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- -->
+
+
+                    <!-- -->
+                    <div class="sidebarblock">
+                        <h3>My Active Threads</h3>
+                        <div class="divline"></div>
+                        <div class="blocktxt">
+                            <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                        </div>
+                        <div class="divline"></div>
+                        <div class="blocktxt">
+                            <a href="#">Who Wins in the Battle for Power on the Internet?</a>
+                        </div>
+                        <div class="divline"></div>
+                        <div class="blocktxt">
+                            <a href="#">Sony QX10: A Funky, Overpriced Lens Camera for Your Smartphone</a>
+                        </div>
+                        <div class="divline"></div>
+                        <div class="blocktxt">
+                            <a href="#">FedEx Simplifies Shipping for Small Businesses</a>
+                        </div>
+                        <div class="divline"></div>
+                        <div class="blocktxt">
+                            <a href="#">Loud and Brave: Saudi Women Set to Protest Driving Ban</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
+                    <div class="pull-left">
+                        <ul class="paginationforum">
+                            <li class="hidden-xs"><a href="#">1</a></li>
+                            <li class="hidden-xs"><a href="#">2</a></li>
+                            <li class="hidden-xs"><a href="#">3</a></li>
+                            <li class="hidden-xs"><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#" class="active">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li class="hidden-xs"><a href="#">9</a></li>
+                            <li class="hidden-xs"><a href="#">10</a></li>
+                            <li class="hidden-xs hidden-md"><a href="#">11</a></li>
+                            <li class="hidden-xs hidden-md"><a href="#">12</a></li>
+                            <li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
+                            <li><a href="#">1586</a></li>
+                        </ul>
+                    </div>
+                    <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}

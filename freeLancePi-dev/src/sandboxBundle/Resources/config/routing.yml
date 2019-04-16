@@ -1,0 +1,17 @@
+sandbox_homepage:
+    path:     /chat/{id}
+    defaults: { _controller: sandboxBundle:Default:index }
+sandbox_scrum:
+    path:     /scrum/{id}
+    defaults: { _controller: sandboxBundle:Default:scrum }
+sandbox_scrum_change:
+    path:     /scrum/change/
+    defaults: { _controller: sandboxBundle:Default:scrumChange }
+sandbox_scrum_add:
+    path:     /scrum/add/
+    defaults: { _controller: sandboxBundle:Default:scrumAdd }
+sandbox_scrum_delete:
+    path:     /scrum/delete/
+    defaults: { _controller: sandboxBundle:Default:scrumDelete }
+
+

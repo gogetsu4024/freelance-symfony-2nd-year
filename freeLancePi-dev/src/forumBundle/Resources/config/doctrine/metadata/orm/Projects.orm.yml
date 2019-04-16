@@ -1,0 +1,62 @@
+Projects:
+    type: entity
+    table: projects
+    indexes:
+        ownerId:
+            columns:
+                - ownerId
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        creationdate:
+            type: datetime
+            nullable: false
+            column: creationDate
+        location:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        category:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        terminationdate:
+            type: datetime
+            nullable: false
+            column: terminationDate
+        ownerid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: ownerId
+        status:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

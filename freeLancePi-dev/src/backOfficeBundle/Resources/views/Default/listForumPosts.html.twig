@@ -1,0 +1,97 @@
+{% extends 'backtemplate/back2.html.twig' %}
+
+{% block cssIncludes %}
+    <link rel="stylesheet" href="/backTemp/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+{% endblock  %}
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- /.box -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Data Table With Full Features</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th class="th-sm">id
+                                </th>
+                                <th class="th-sm">category
+                                </th>
+                                <th class="th-sm">sujet
+                                </th>
+                                <th class="th-sm">description
+                                </th>
+                                <th class="th-sm">dateAjout
+                                </th>
+                                <th class="th-sm">user
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for p in posts %}
+                                <tr>
+                                    <td>{{ p.id }}</td>
+                                    <td>{{ p.categoryId.name }}</td>
+                                    <td><a style="color: #0a6ebd" href="{{ path('back_office_singleForumPosts',{'id': p.id }) }}">{{ p.subject }}</a></td>
+                                    <td>{{ p.description }}</td>
+                                    <td>{{ p.postedDate|date('Y-M-D') }}</td>
+                                    <td>
+                                        <div class="image-holder">
+                                            <img style="width:50px;height: 50px; border-radius: 50%;" src="/forum/images/avatar/{{ p.iduser.picturePath }}" alt="" />
+                                            <div class="status green">&nbsp;</div>
+                                        </div>
+                                        <a style="color: #0a6ebd" href="{{ path('back_office_listForumPosts_user',{'id': p.iduser.id }) }}">{{ p.iduser.username }}</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th class="th-sm">id
+                                </th>
+                                <th class="th-sm">category
+                                </th>
+                                <th class="th-sm">sujet
+                                </th>
+                                <th class="th-sm">description
+                                </th>
+                                <th class="th-sm">dateAjout
+                                </th>
+                                <th class="th-sm">user
+                                </th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+{% endblock %}
+{% block jsIncludes %}
+    <script src="/backTemp/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/backTemp/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            })
+        })
+    </script>
+{% endblock %}

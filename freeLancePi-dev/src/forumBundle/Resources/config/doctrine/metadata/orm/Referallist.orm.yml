@@ -1,0 +1,32 @@
+Referallist:
+    type: entity
+    table: referallist
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        iduser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idUser
+        idreferedfriend:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idReferedFriend
+        identreprise:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idEntreprise
+    lifecycleCallbacks: {  }

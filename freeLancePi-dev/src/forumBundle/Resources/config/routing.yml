@@ -1,0 +1,27 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: forumBundle:Default:index }
+forum_add:
+    path:     /add/
+    defaults: { _controller: forumBundle:Default:add }
+forum_view_single:
+    path:     /view/{id}
+    defaults: { _controller: forumBundle:Default:view }
+forum_view_single_user:
+    path:     /viewUser/{id}
+    defaults: { _controller: forumBundle:Default:viewUser }
+forum_delete:
+    path:     /delete/{id}
+    defaults: { _controller: forumBundle:Default:delete }
+forum_add_comment:
+    path:     /addComment/{id}
+    defaults: { _controller: forumBundle:Default:addComment}
+forum_view_single_Comment_delete:
+    path:     /deleteComment/{id}
+    defaults: { _controller: forumBundle:Default:viewsingleCommentDelete}
+forum_view_search_Ajax:
+    path:     /search/{id}
+    defaults: { _controller: forumBundle:Default:ajax}
+forum_view_search_Ajax2:
+    path:     /search/
+    defaults: { _controller: forumBundle:Default:ajax}

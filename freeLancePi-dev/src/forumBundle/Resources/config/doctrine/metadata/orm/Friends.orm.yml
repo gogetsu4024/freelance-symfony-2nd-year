@@ -1,0 +1,34 @@
+Friends:
+    type: entity
+    table: friends
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        iduser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idUser
+        idfriend:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: idFriend
+        coworker:
+            type: boolean
+            nullable: false
+        closefriend:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

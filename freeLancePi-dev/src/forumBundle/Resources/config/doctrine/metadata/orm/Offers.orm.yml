@@ -1,0 +1,63 @@
+Offers:
+    type: entity
+    table: offers
+    indexes:
+        offers_ibfk_1:
+            columns:
+                - freelancerId
+        projectId:
+            columns:
+                - projectId
+        taskId:
+            columns:
+                - taskId
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        taskid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: taskId
+        projectid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: projectId
+        freelancerid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: freelancerId
+        bid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        duration:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        offerdate:
+            type: datetime
+            nullable: false
+            column: offerDate
+        motivationalletter:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: motivationalLetter
+    lifecycleCallbacks: {  }

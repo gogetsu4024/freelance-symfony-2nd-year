@@ -1,0 +1,68 @@
+<?php
+
+namespace forumBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Scrumnotes
+ *
+ * @ORM\Table(name="scrumnotes")
+ * @ORM\Entity
+ */
+class Scrumnotes
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=50, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postedDate", type="string", length=50, nullable=false)
+     */
+    private $posteddate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="userId", type="integer", nullable=false)
+     */
+    private $userid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=30, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="scrumboardId", type="integer", nullable=true)
+     */
+    private $scrumboardid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=50, nullable=false)
+     */
+    private $state;
+
+
+}
+

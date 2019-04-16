@@ -1,0 +1,33 @@
+Participant:
+    type: entity
+    table: participant
+    indexes:
+        fk_event:
+            columns:
+                - eventID
+        fk_part:
+            columns:
+                - feelancerID
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        eventid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: eventID
+        feelancerid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: feelancerID
+    lifecycleCallbacks: {  }

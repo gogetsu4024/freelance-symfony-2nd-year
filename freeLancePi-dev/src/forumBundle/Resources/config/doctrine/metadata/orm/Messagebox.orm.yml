@@ -1,0 +1,44 @@
+Messagebox:
+    type: entity
+    table: messagebox
+    indexes:
+        receiverID:
+            columns:
+                - receiverID
+        senderID:
+            columns:
+                - senderID
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        receiverid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: receiverID
+        senderid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: senderID
+        message:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        reply:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }
