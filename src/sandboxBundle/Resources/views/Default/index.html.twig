@@ -714,8 +714,8 @@
                                         <div id="frame">
                                             <div class="content">
                                                 <div class="contact-profile">
-                                                    <img src="/forum/images/avatar/{{ app.user.picturePath }}" alt="" />
-                                                    <p>{{ app.user.username }}</p>
+                                                    <img src="/forum/images/avatar/{{ app.user is null ? "04.jpg" : app.user.picturePath }}" alt="" />
+                                                    <p>{{ app.user is null ? "bassem" : app.user.username }}</p>
                                                     <div class="social-media">
                                                         <i class="fa fa-facebook" aria-hidden="true"></i>
                                                         <i class="fa fa-twitter" aria-hidden="true"></i>

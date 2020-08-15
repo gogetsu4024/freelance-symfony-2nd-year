@@ -15,7 +15,7 @@
                             <div class="topwrap">
                                 <div class="userinfo pull-left">
                                     <div class="avatar">
-                                        <img src="/forum/images/avatar/{{ app.user.picturePath }}" alt="">
+                                        <img src="/forum/images/avatar/{{ app.user is null ? "04.jpg" : app.user.picturePath }}" alt="">
                                         <div class="status red">&nbsp;</div>
                                     </div>
                                 </div>
